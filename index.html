@@ -64,7 +64,7 @@
                         <tr>
                           <td id="realname"></td>
                           <td id="realid"></td>
-                          <td><div class="major">-</div></td>
+                          <td><div id ="majoris"class="major">-</div></td>
                         </tr>
                     </tbody>
                 </table>
@@ -190,7 +190,9 @@
               </table>
         </div>
      </div>
-     <button type="button" id="done" class="btn btn-primary ms-1 text-nowrap">Done!</button>
+     <center>
+     <button type="button" id="done" class="btn btn-outline-primary" style= width:100px;>Done!</button>
+     </center>
         <h4><strong>Graduation Requirements</strong></h4>
     <div>
            <table border=1px style="width:100%;" class="table table-bordered">
@@ -263,15 +265,18 @@ let busiprac=0;
     let majorsoftware=document.querySelector("#Software")
     let majormedical=document.querySelector("#Medical")
     let majorbusiness=document.querySelector("#Business")
+    let majoris=document.querySelector("#majoris")
     let needmaj=document.querySelector("#neededmajor");
     let needelec=document.querySelector("#neededelective");
     let needprac=document.querySelector("#neededpractice");
+
     majorsoftware.addEventListener("click",()=>{
       major="Software";
       majorselect.textContent=major;
       needmaj.textContent = softmaj-corenum;
       needelec.textContent = softelec-electivenum;
       needprac.textContent = softprac-practicenum;
+      majoris.textContent=major;
     })
     majormedical.addEventListener("click",()=>{
       major="Medical";
@@ -279,13 +284,15 @@ let busiprac=0;
       needmaj.textContent= medmaj-corenum;
       needelec.textContent = medelec-electivenum;
       needprac.textContent = medprac-practicenum;
+      majoris.textContent=major;
     })
     majorbusiness.addEventListener("click",()=>{
       major="Business";
      majorselect.textContent=major;
      needmaj.textContent=busimaj-corenum;
      needelec.textContent=busielec-electivenum;
-     needprac.text.Content=busiprac-practicenum;
+     needprac.textContent=busiprac-practicenum;
+     majoris.textContent=major;
     })
         let state='';
         let corenum=0;
@@ -444,16 +451,8 @@ let busiprac=0;
 
             let sgck_tasks=[];
 
-            function loadTasks() {
-                let lastTasks = localStorage.getItem("sgck_tasks");
-                if (!lastTasks) 
-                    return;
-                sgck_tasks = JSON.parse(lastTasks);
-                sgck_tasks.forEach(addToList);
-            }
-            function saveTasks() {
-                localStorage.setItem("sgck_tasks", JSON.stringify(sgck_tasks));
-            }
+           
+           
             function addToList(task) {
                 let divarr=[];
                 for(i of task){
@@ -496,9 +495,7 @@ let busiprac=0;
                 }
             }
 
-            window.addEventListener("load", () => {
-                loadTasks();
-            });
+           
             let button = document.querySelector("#add");
             button.addEventListener("click", () => {
                 // 1. Read the text in #task-input.
@@ -519,19 +516,17 @@ let busiprac=0;
                     corecredit=corecredit+parseInt(text2);
                     corecredits.push(text2);
                     coregrades.push(text1);
-                    correctkind=true;
+                   correctkind=true;
                 }
                 if(text3==='Elective')
-                {
-                    correctkind=true;
-                    eleccredit=eleccredit+parseInt(text2);
-                }
+                correctkind=true;
                 if(text3==='Practice')
-                {
-                    correctkind=true;
-                    praccredit=praccredit+parseInt(text2);
-                }
+                correctkind=true;
+             if (text2!=='1' && text2!=='2' && text2!=='3')
+             return;
+               
 
+               
 
                 if(correctkind===false)
                   return;
@@ -543,6 +538,38 @@ let busiprac=0;
                     return;
                 if (!text3.length) 
                     return;
+
+
+                    switch (text1) {
+      case "A+":
+       
+        break;
+      case "B+":
+        
+        break;
+      case "C+":
+       
+        break;
+      case "D+":
+       
+        break;
+      case "A":
+       
+        break;
+      case "B":
+        
+        break;
+      case "C":
+        
+        break;
+      case "D":
+       
+        break;
+      case "F":
+        break;
+        default: 
+        return;
+                    }
                 
                 // 2. Create a new Task object.
                 let task=[];
@@ -566,7 +593,7 @@ let busiprac=0;
 
                 // 3. Append the new Task object to tasks
                 sgck_tasks.push(task);
-                saveTasks();
+                
 
                 // 4. Create a new task item and attach it to #todo-list.
                 addToList(task);
@@ -636,6 +663,7 @@ let busiprac=0;
   }
   return total / totalcredits;
 }
+
 
     </script>
 </body>
