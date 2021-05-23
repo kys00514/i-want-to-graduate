@@ -20,63 +20,70 @@
 <body>
     <!--HTMLCode-->
     <div id="wrapper">
-    <h1>I Want To Graduate!</h1>
-        <p><strong>What is IWTG? :</strong> IWTG is a web application for undergraduates who need help visualizing 
-            their former achievements in the school to get a sense of their present 
-            status in obtaining their only goal and desire that is, graduating. </p>
+        <h2><strong>I Want To Graduate!</strong></h2>
+        <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><strong>What is IWTG?</strong></h5>
+              <p class="card-text">IWTG is a web application for undergraduates who need help visualizing 
+                their former achievements in the school to get a sense of their present 
+                status in obtaining their only goal and desire that is, graduating.</p>
+            </div>
+        </div>
     <div class="container">
         <div class="mb-3">
-            <label for="exampleFormControlInput1"class="form-label">Input name and student ID</label>
-            <table>
-                <tr>
-                    <td><input type="text"class="form-control"id="exampleFormControlInput1"placeholder="Name"></td>
-                    <td><button type="button"class="btn btn-dark">Enter</button></td>
-                </tr>
-                <tr>
-                    <td><input type="text"class="form-control"id="exampleFormControlInput2"placeholder="Student ID"></td>
-                    <td><button type="button"class="btn btn-dark">Enter</button></td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class="container">
-        <div class="d-flex mb-3">
-            <div class="flex-grow-1">
-                <h3>Name</h3>
-                <div id="name"></div>
-            </div>
-            <div class="flex-grow-1">
-                <h3>Student ID</h3>
-                <div id="ID"></div>
-            </div>
-            <div class="flex-grow-1">
-                <h3>Major</h3>
-            </div>
-            <div class="btn-group" role="group">
-                <button id="majorselect" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Select your major
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <li><button id="Software" type="button" class="btn btn-white">Software</button></li>
-                <li><button id="Medical" type="button" class="btn btn-white">Medical</button></li>
-                <li><button id="Business" type="button" class="btn btn-white">Business</button></li>
-                </ul>
+            <h4><strong>Input name and student ID</strong></h4>
+            <div class="d-flex align-items-center mb-2 mt-2">
+                <input type="text"class="form-control"id="exampleFormControlInput1"placeholder="Name">
+                <input type="text"class="form-control"id="exampleFormControlInput2"placeholder="Student ID">
+                <button type="button"class="btn btn-dark">Enter</button>
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Select your major
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <li><button type="button" class="btn btn-white">Software</button></li>
+                    <li><button type="button" class="btn btn-white">Medical</button></li>
+                    <li><button type="button" class="btn btn-white">Business</button></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="d-flex mb-3">
+            <div class="container flex-grow-1">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width:30%">Name</th>
+                            <th scope="col" style="width:20%">Student ID</th>
+                            <th scope="col" style="width:20%">Major</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <tr>
+                          <td><div class="name">-</div></td>
+                          <td><div class="id">-</div></td>
+                          <td><div class="major">-</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="d-flex mb-3">
             <div class="flex-grow-1">
-                <h3>Choose the type of class and credit</h3>
+                <h4><strong>Choose the type of class and credit(Prev.)<strong></h4>
             </div>
             <div class="btn-group flex-grow-1" role="group">
                 <button id="btnGroupDrop1" type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Type of class
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <li><button id="Core"type="button" class="btn btn-white">Core class</button></li>
-                <li><button id="Elective"type="button" class="btn btn-white">Elective class</button></li>
-                <li><button id="Practice"type="button" class="btn btn-white">Practice class</button></li>
+                <li><button type="button" class="btn btn-white">Core class</button></li>
+                <li><button type="button" class="btn btn-white">Elective class</button></li>
+                <li><button type="button" class="btn btn-white">Practice class</button></li>
                 </ul>
             </div>
             <div class="btn-group flex-grow-1" role="group">
@@ -84,9 +91,9 @@
                 Credit
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <li><button id="one" type="button" class="btn btn-white">1</button></li>
-                <li><button id="two" type="button" class="btn btn-white">2</button></li>
-                <li><button id="three" type="button" class="btn btn-white">3</button></li>
+                <li><button type="button" class="btn btn-white">1</button></li>
+                <li><button type="button" class="btn btn-white">2</button></li>
+                <li><button type="button" class="btn btn-white">3</button></li>
                 </ul>
             </div>
         </div>
@@ -101,17 +108,17 @@
                     </thread>
                     <tbody>
                         <tr>
-                          <td><div id="type"></div></td>
-                          <td><div id="credit"></div></td>
+                          <td><div id="type">-</div></td>
+                          <td><div id="credit">-</div></td>
                         </tr>
                     </tbody>
                 </table>
-                <button id="tochart" type="button" class="btn btn-outline-dark">+</button>
+                <button id="plus" type="button" class="btn btn-outline-dark" style="height:83px">+</button>
             </div>
         </div>
         <div>
             <div>
-                <h3>Credit so far</h3>
+                <h4><strong>Credit so far</strong></h4>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -124,9 +131,9 @@
                     <tbody>
                         <tr>
                           <th scope="row">Credits</th>
-                          <td id="corecredit">0</td>
-                          <td id="electivecredit">0</td>
-                          <td id="practicecredit">0</td>
+                          <td>0</td>
+                          <td>0</td>
+                          <td>0</td>
                         </tr>
                     </tbody>
                 </table>
@@ -134,6 +141,7 @@
         </div>
     </div>
         <div class="container">
+            <h4><strong>Type in infos about classes for current semester</strong></h4>
         <div class="d-flex align-items-center mb-2 mt-2">
             <input
                 type="text"
@@ -155,7 +163,7 @@
                 class="form-control"
                 id="task-input3"
             placeholder="Kind">
-            <button type="button" id="add" class="btn btn-primary ms-1 text-nowrap">
+            <button type="button" id="add" class="btn btn-outline-primary ms-1 text-nowrap">
                 <i class="bi bi-plus"></i>
                 Enter</button>
         </div>
@@ -182,32 +190,30 @@
               </table>
         </div>
      </div>
-    
-     <button type="button" id="done" class="btn btn-primary ms-1 text-nowrap">Done!</button>
-        <h3>졸업요건</h3>
+        <h4><strong>Graduation Requirements</strong></h4>
     <div>
            <table border=1px style="width:100%;" class="table table-bordered">
                    <tr>
-                       <td>현학기 성적</td>
-                       <td id="currentgrade">x</td>
+                       <td>Current semester's GPA</td>
+                       <td id="current grade">x</td>
                    </tr>
                    <tr>
-                       <td>현학기 전공 성적</td>
-                       <td id="currentcoregrade">x</td>
+                       <td>Current semester's core class' GPA</td>
+                       <td id="current major grade">x</td>
                    </tr>
                    <tr>
-                       <th>수업종류</th>
-                       <th>모자란 학점</th>
+                       <th>Type of class</th>
+                       <th>Credits to take</th>
                    </tr>
                    <tr>
-                       <td>전공</td>
-                       <td id="needed major">x</td>
+                       <td>Core</td>
+                       <td id="needed major"><div class="core">x</div></td>
                    </tr> <tr>
-                       <td>교양</td>
-                       <td id="needed elective">x</td>
+                       <td>Elective</td>
+                       <td id="needed elective"><div class="elective">x</div></td>
                    </tr> <tr>
-                       <td>실습</td>
-                       <td id="needed practice">x</td>
+                       <td>Practice</td>
+                       <td id="needed practice"><div class="practice">x</div></td>
                    </tr>
            </table>
    </div>
