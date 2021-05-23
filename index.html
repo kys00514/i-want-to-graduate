@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +33,9 @@
         <div class="mb-3">
             <h4><strong>Input name and student ID</strong></h4>
             <div class="d-flex align-items-center mb-2 mt-2">
-                <input type="text"class="form-control"id="exampleFormControlInput1"placeholder="Name">
-                <input type="text"class="form-control"id="exampleFormControlInput2"placeholder="Student ID">
-                <button type="button"class="btn btn-dark">Enter</button>
+                <input type="text"class="form-control"id="name" placeholder="Name">
+                <input type="text"class="form-control"id="id" placeholder="Student ID">
+                <button id="submit" type="button"class="btn btn-dark">Enter</button>
                 <div class="btn-group" role="group">
                     <button id="majorselect" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     Select your major
@@ -63,8 +62,8 @@
                     </thread>
                     <tbody>
                         <tr>
-                          <td><div class="name">-</div></td>
-                          <td><div class="id">-</div></td>
+                          <td id="realname"></td>
+                          <td id="realid"></td>
                           <td><div class="major">-</div></td>
                         </tr>
                     </tbody>
@@ -209,13 +208,13 @@
                    </tr>
                    <tr>
                        <td>Core</td>
-                       <td id="needed major"><div class="core">x</div></td>
+                       <td id="neededmajor">0</td>
                    </tr> <tr>
                        <td>Elective</td>
-                       <td id="needed elective"><div class="elective">x</div></td>
+                       <td id="neededelective">0</td>
                    </tr> <tr>
                        <td>Practice</td>
-                       <td id="needed practice"><div class="practice">x</div></td>
+                       <td id="neededpractice">0</td>
                    </tr>
            </table>
    </div>
@@ -230,7 +229,64 @@
     <script script>
         /*JSCode*/
         
-        
+        let plus = document.querySelector("#submit");
+        plus.addEventListener("click", ()=>{
+            let input1 = document.querySelector("#name");
+            let input2 = document.querySelector("#id");
+            text1 = input1.value;
+            text2 = input2.value;
+
+            let newname = document.createElement("div");
+            newname.textContent = text1;
+
+            let realname = document.querySelector("#realname");
+            realname.appendChild(newname);
+            input1.value="";
+
+            let newid = document.createElement("div");
+            newid.textContent = text2;
+
+            let realid = document.querySelector("#realid");
+            realid.appendChild(newid);
+            input2.value="";
+        })
+        let major='';
+let softmaj=54;
+let softelec=65;
+let softprac=14;
+let medmaj=33;
+let medelec=48;
+let medprac=0;
+let busimaj=63;
+let busielec=57;
+let busiprac=0;
+    let majorsoftware=document.querySelector("#Software")
+    let majormedical=document.querySelector("#Medical")
+    let majorbusiness=document.querySelector("#Business")
+    let needmaj=document.querySelector("#neededmajor");
+    let needelec=document.querySelector("#neededelective");
+    let needprac=document.querySelector("#neededpractice");
+    majorsoftware.addEventListener("click",()=>{
+      major="Software";
+      majorselect.textContent=major;
+      needmaj.textContent = softmaj-corenum;
+      needelec.textContent = softelec-electivenum;
+      needprac.textContent = softprac-practicenum;
+    })
+    majormedical.addEventListener("click",()=>{
+      major="Medical";
+      majorselect.textContent=major;
+      needmaj.textContent= medmaj-corenum;
+      needelec.textContent = medelec-electivenum;
+      needprac.textContent = medprac-practicenum;
+    })
+    majorbusiness.addEventListener("click",()=>{
+      major="Business";
+     majorselect.textContent=major;
+     needmaj.textContent=busimaj-corenum;
+     needelec.textContent=busielec-electivenum;
+     needprac.text.Content=busiprac-practicenum;
+    })
         let state='';
         let corenum=0;
         let electivenum=0;
@@ -360,14 +416,20 @@
         for(i of typecreditdiv){
         i.remove();
         }
-        
-       
-
-
-
+        if(major!=='')
+        {
+            let needmaj=document.querySelector("#neededmajor");
+            let needelec=document.querySelector("#neededelective");
+            let needprac=document.querySelector("#neededpractice");
+            needmaj.textContent -= corenum;
+            needelec.textContent -= electivenum;
+            needprac.textContent -= practicenum;
+        }
         })
         let totalcredit=0;
         let corecredit=0;
+        let eleccredit=0;
+        let praccredit=0;
         let coregrades=[];
         let grades=[];
         let corecredits=[];
@@ -437,7 +499,6 @@
             window.addEventListener("load", () => {
                 loadTasks();
             });
-
             let button = document.querySelector("#add");
             button.addEventListener("click", () => {
                 // 1. Read the text in #task-input.
@@ -458,12 +519,18 @@
                     corecredit=corecredit+parseInt(text2);
                     corecredits.push(text2);
                     coregrades.push(text1);
-                   correctkind=true;
+                    correctkind=true;
                 }
                 if(text3==='Elective')
-                correctkind=true;
+                {
+                    correctkind=true;
+                    eleccredit=eleccredit+parseInt(text2);
+                }
                 if(text3==='Practice')
-                correctkind=true;
+                {
+                    correctkind=true;
+                    praccredit=praccredit+parseInt(text2);
+                }
 
 
                 if(correctkind===false)
@@ -520,9 +587,12 @@
           let coregrade=document.querySelector("#currentmajorgrade");
           coregrade.textContent=finalcoregrade;
           console.log(finalgrade);
-
-
-
+          let needmaj=document.querySelector("#neededmajor");
+          let needelec=document.querySelector("#neededelective");
+          let needprac=document.querySelector("#neededpractice");
+          needmaj.textContent -= corecredit;
+          needelec.textContent -= eleccredit;
+          needprac.textContent -= praccredit;
           })
 
 
@@ -566,22 +636,7 @@
   }
   return total / totalcredits;
 }
-let major='';
-    let majorsoftware=document.querySelector("#Software")
-    let majormedical=document.querySelector("#Medical")
-    let majorbusiness=document.querySelector("#Business")
-    majorsoftware.addEventListener("click",()=>{
-      major="Software";
-      majorselect.textContent=major;
-    })
-    majormedical.addEventListener("click",()=>{
-      major="Medical";
-      majorselect.textContent=major;
-    })
-    majorbusiness.addEventListener("click",()=>{
-      major="Business";
-     majorselect.textContent=major;
-    })
+
     </script>
 </body>
 </html>
