@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,13 +38,13 @@
                 <input type="text"class="form-control"id="exampleFormControlInput2"placeholder="Student ID">
                 <button type="button"class="btn btn-dark">Enter</button>
                 <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button id="majorselect" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     Select your major
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <li><button type="button" class="btn btn-white">Software</button></li>
-                    <li><button type="button" class="btn btn-white">Medical</button></li>
-                    <li><button type="button" class="btn btn-white">Business</button></li>
+                    <li><button id="Software" type="button" class="btn btn-white">Software</button></li>
+                    <li><button id="Medical"type="button" class="btn btn-white">Medical</button></li>
+                    <li><button id="Business"type="button" class="btn btn-white">Business</button></li>
                     </ul>
                 </div>
             </div>
@@ -81,9 +82,9 @@
                 Type of class
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <li><button type="button" class="btn btn-white">Core class</button></li>
-                <li><button type="button" class="btn btn-white">Elective class</button></li>
-                <li><button type="button" class="btn btn-white">Practice class</button></li>
+                <li><button id="Core" type="button" class="btn btn-white">Core class</button></li>
+                <li><button id="Elective" type="button" class="btn btn-white">Elective class</button></li>
+                <li><button id="Practice"type="button" class="btn btn-white">Practice class</button></li>
                 </ul>
             </div>
             <div class="btn-group flex-grow-1" role="group">
@@ -91,9 +92,9 @@
                 Credit
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <li><button type="button" class="btn btn-white">1</button></li>
-                <li><button type="button" class="btn btn-white">2</button></li>
-                <li><button type="button" class="btn btn-white">3</button></li>
+                <li><button id="one" type="button" class="btn btn-white">1</button></li>
+                <li><button id="two" type="button" class="btn btn-white">2</button></li>
+                <li><button id="three" type="button" class="btn btn-white">3</button></li>
                 </ul>
             </div>
         </div>
@@ -113,7 +114,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button id="plus" type="button" class="btn btn-outline-dark" style="height:83px">+</button>
+                <button id="tochart" type="button" class="btn btn-outline-dark" style="height:83px">+</button>
             </div>
         </div>
         <div>
@@ -131,9 +132,9 @@
                     <tbody>
                         <tr>
                           <th scope="row">Credits</th>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
+                          <td id="corecredit">0</td>
+                          <td id="electivecredit">0</td>
+                          <td id="practicecredit">0</td>
                         </tr>
                     </tbody>
                 </table>
@@ -190,16 +191,17 @@
               </table>
         </div>
      </div>
+     <button type="button" id="done" class="btn btn-primary ms-1 text-nowrap">Done!</button>
         <h4><strong>Graduation Requirements</strong></h4>
     <div>
            <table border=1px style="width:100%;" class="table table-bordered">
                    <tr>
                        <td>Current semester's GPA</td>
-                       <td id="current grade">x</td>
+                       <td id="currentgrade">x</td>
                    </tr>
                    <tr>
                        <td>Current semester's core class' GPA</td>
-                       <td id="current major grade">x</td>
+                       <td id="currentmajorgrade">x</td>
                    </tr>
                    <tr>
                        <th>Type of class</th>
@@ -510,12 +512,14 @@
             });
           let done=document.querySelector("#done");
           done.addEventListener("click",()=>{
+              console.log("jo");
           let finalgrade=gradefinder(totalcredit,grades,credits);
           let finalcoregrade=gradefinder(corecredit,coregrades,corecredits)
           let gradechart=document.querySelector("#currentgrade");
           gradechart.textContent=finalgrade;
-          let coregrade=document.querySelector("#currentcoregrade");
+          let coregrade=document.querySelector("#currentmajorgrade");
           coregrade.textContent=finalcoregrade;
+          console.log(finalgrade);
 
 
 
