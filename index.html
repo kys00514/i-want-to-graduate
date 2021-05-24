@@ -74,7 +74,7 @@
     <div class="container">
         <div class="d-flex mb-3">
             <div class="flex-grow-1">
-                <h4><strong>Choose the type of class and credit(Prev.)<strong></h4>
+                <h4><strong>Previous Semester Credits<strong></h4>
             </div>
             <div class="btn-group flex-grow-1" role="group">
                 <button id="btnGroupDrop1" type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -113,7 +113,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button id="tochart" type="button" class="btn btn-outline-dark" style="height:83px">+</button>
+                <button id="tochart" type="button" class="btn btn-outline-dark" style="height:83px; width:83px; margin-inline-start:20px; ">+</button>
             </div>
         </div>
         <div>
@@ -141,7 +141,7 @@
         </div>
     </div>
         <div class="container">
-            <h4><strong>Type in infos about classes for current semester</strong></h4>
+            <h4><strong>Current Semester Grades</strong></h4>
         <div class="d-flex align-items-center mb-2 mt-2">
             <input
                 type="text"
@@ -606,7 +606,7 @@ let busiprac=0;
             });
           let done=document.querySelector("#done");
           done.addEventListener("click",()=>{
-              console.log("jo");
+             
           let finalgrade=gradefinder(totalcredit,grades,credits);
           let finalcoregrade=gradefinder(corecredit,coregrades,corecredits)
           let gradechart=document.querySelector("#currentgrade");
