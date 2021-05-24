@@ -1,7 +1,7 @@
 # i-want-to-graduate
 ![scrrenshot](./screenshot.png)
 
-[demo](url1)
+[demo](https://youtu.be/p8_7woesPqI)
 
 ## How to install
 
