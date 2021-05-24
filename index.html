@@ -505,17 +505,14 @@ let busiprac=0;
                 let input3 = document.querySelector("#task-input3");
                 let text = input.value;
                 let text1 = input1.value;
-                grades.push(text1);
+               
                 let text2 = input2.value;
-                totalcredit=totalcredit+parseInt(text2);
-                credits.push(text2);
+               
                
                 let text3 = input3.value;
                 let correctkind=false;
                 if(text3==='Core'){
-                    corecredit=corecredit+parseInt(text2);
-                    corecredits.push(text2);
-                    coregrades.push(text1);
+                  
                    correctkind=true;
                 }
                 if(text3==='Elective')
@@ -570,7 +567,12 @@ let busiprac=0;
         default: 
         return;
                     }
-                
+                    grades.push(text1);
+                    totalcredit=totalcredit+parseInt(text2);
+                    credits.push(text2);
+                    corecredit=corecredit+parseInt(text2);
+                    corecredits.push(text2);
+                    coregrades.push(text1);
                 // 2. Create a new Task object.
                 let task=[];
                 task[0] = {
