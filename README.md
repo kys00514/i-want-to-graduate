@@ -15,8 +15,3 @@
 - Enter only alphabet in Grade
 - Enter only Core, Elective, Practice in Kind
 - If not entered correctly, they will not be added to the grade list
-
-### Contribution
-#### 김성수: html 30%, js 30%, css, README screenshot
-#### 김영석: html 40%, js 40%, README video
-#### 남동완: html 30%, js 30%, test, README others
