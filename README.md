@@ -1,6 +1,6 @@
-# i-want-to-graduate
-![scrrenshot](./screenshot.png)
 
+# i-want-to-graduate
+![I Want To Graduate Screenshot](https://user-images.githubusercontent.com/80453593/119308479-0e936380-bca8-11eb-9ef3-e80637b1011d.png)
 [demo](https://youtu.be/p8_7woesPqI)
 
 ## How to use
