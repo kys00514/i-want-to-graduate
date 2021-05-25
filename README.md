@@ -9,7 +9,7 @@
 3. Select your major
 4. Choose the type of class and credit
 5. Enter subject, grade, credit and kind of the current semester
-6. Finish
+6. Press Done and finish
 
 ## Precautions
 - Enter only alphabet in Grade
